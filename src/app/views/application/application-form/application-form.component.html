@@ -1,0 +1,467 @@
+<mat-vertical-stepper linear #stepper>
+  <mat-step [stepControl]="firstFormGroup" errorMessage="Name is required.">
+    <form [formGroup]="firstFormGroup">
+      <mat-grid-list cols="4" rowHeight="200px">
+        <ng-template matStepLabel>Fill your purpose</ng-template>
+        <mat-grid-tile [colspan]="3" [rowspan]="1">
+          <div class="container">
+            <mat-form-field class="full-width">
+              <mat-label>Select the Purpose</mat-label>
+              <mat-select formControlName="purposeCtl">
+                <mat-option value="visitor">
+                  Visitor
+                </mat-option>
+                <mat-option value="working">
+                  Working Resident
+                </mat-option>
+                <mat-option value="business">
+                  Business
+                </mat-option>
+                <mat-option value="student">
+                  Student
+                </mat-option>
+                <mat-option value="entertainer">
+                  Entertainer
+                </mat-option>
+                <mat-option value="accompanying">
+                  Accompanying another applicant as a dependant on my own
+                  passport.
+                </mat-option>
+                <mat-option value="special">
+                  Special Exemption
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+
+            <mat-form-field class="full-width">
+              <mat-label>Select Visa Type</mat-label>
+              <mat-select formControlName="visaCtl">
+                <mat-option value="business">
+                  Business Visa Classes
+                </mat-option>
+                <mat-option value="restricted">
+                  Restricted Visa Classes
+                </mat-option>
+                <mat-option value="special">
+                  Special Exemption Visa Classes
+                </mat-option>
+                <mat-option value="visitor">
+                  Visitor Visa Classes
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+            <mat-form-field class="full-width">
+              <mat-label>How long do you wish to stay in Soloman</mat-label>
+              <input
+                matInput
+                [matDatepicker]="picker1"
+                placeholder="Choose a date"
+                formControlName="stayDate"
+              />
+              <mat-datepicker-toggle
+                matSuffix
+                [for]="picker1"
+              ></mat-datepicker-toggle>
+              <mat-datepicker #picker1></mat-datepicker>
+            </mat-form-field>
+          </div>
+        </mat-grid-tile>
+        <mat-grid-tile [colspan]="1" [rowspan]="1"> </mat-grid-tile>
+      </mat-grid-list>
+      <div>
+        <button mat-raised-button color="accent" matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step
+    [stepControl]="secondFormGroup"
+    errorMessage="Personal details is required"
+  >
+    <form [formGroup]="secondFormGroup">
+      <ng-template matStepLabel>Fill the personal details</ng-template>
+
+      <mat-grid-list cols="3">
+        <mat-grid-tile [colspan]="1" [rowspan]="1">
+          <div class="container">
+            <mat-form-field>
+              <input
+                matInput
+                formControlName="familyName"
+                placeholder="Family Name"
+              />
+            </mat-form-field>
+            <mat-form-field>
+              <input
+                matInput
+                formControlName="givenName"
+                placeholder="Given Name"
+              />
+            </mat-form-field>
+            <mat-form-field>
+              <input
+                matInput
+                [matDatepicker]="picker2"
+                formControlName="dob"
+                placeholder="Date of Birth"
+              />
+              <mat-datepicker-toggle
+                matSuffix
+                [for]="picker2"
+              ></mat-datepicker-toggle>
+              <mat-datepicker #picker2></mat-datepicker>
+            </mat-form-field>
+            <mat-form-field class="full-width">
+              <mat-label>Sex</mat-label>
+              <mat-select formControlName="sexCtl">
+                <mat-option value="male">
+                  Male
+                </mat-option>
+                <mat-option value="female">
+                  Female
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+            <mat-form-field class="full-width">
+              <mat-label>Marital Status</mat-label>
+              <mat-select formControlName="mStatusCtl">
+                <mat-option value="married">
+                  Married
+                </mat-option>
+                <mat-option value="divorced">
+                  Divorced
+                </mat-option>
+                <mat-option value="defacto">
+                  De-facto
+                </mat-option>
+                <mat-option value="never">
+                  Never Married
+                </mat-option>
+                <mat-option value="widowed">
+                  Widowed
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+        </mat-grid-tile>
+        <mat-grid-tile [colspan]="1" [rowspan]="1">
+          <div class="container">
+            <mat-form-field>
+              <input
+                matInput
+                formControlName="country"
+                placeholder="Country of Birth"
+              />
+            </mat-form-field>
+            <mat-form-field>
+              <input
+                matInput
+                formControlName="nationality"
+                placeholder="Nationality"
+              />
+            </mat-form-field>
+            <mat-form-field>
+              <input
+                matInput
+                formControlName="passport"
+                placeholder="Passport Number"
+              />
+            </mat-form-field>
+            <mat-form-field>
+              <input
+                matInput
+                [matDatepicker]="picker3"
+                formControlName="exdate"
+                placeholder="Passport expiry date"
+              />
+              <mat-datepicker-toggle
+                matSuffix
+                [for]="picker3"
+              ></mat-datepicker-toggle>
+              <mat-datepicker #picker3></mat-datepicker>
+            </mat-form-field>
+            <mat-form-field>
+              <input
+                matInput
+                formControlName="occupartion"
+                placeholder="Occupartion"
+              />
+            </mat-form-field>
+          </div>
+        </mat-grid-tile>
+        <mat-grid-tile [colspan]="1" [rowspan]="1">
+          <div class="container">
+            <mat-form-field>
+              <input
+                matInput
+                [matDatepicker]="picker4"
+                formControlName="pExDate"
+                placeholder="Passport expiry date"
+              />
+              <mat-datepicker-toggle
+                matSuffix
+                [for]="picker4"
+              ></mat-datepicker-toggle>
+              <mat-datepicker #picker4></mat-datepicker>
+            </mat-form-field>
+            <mat-form-field>
+              <input
+                matInput
+                formControlName="place"
+                placeholder="passport issuing place"
+              />
+            </mat-form-field>
+            <mat-form-field>
+              <input
+                matInput
+                formControlName="authority"
+                placeholder="passport issuing authority"
+              />
+            </mat-form-field>
+          </div>
+        </mat-grid-tile>
+      </mat-grid-list>
+
+      <div>
+        <button mat-raised-button color="primary" matStepperPrevious>
+          Back
+        </button>
+        <button mat-raised-button color="accent" class="ml-1" matStepperNext>
+          Next
+        </button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step [stepControl]="thirdFormGroup" errorMessage="Address is required.">
+    <form [formGroup]="thirdFormGroup">
+      <ng-template matStepLabel>Fill the address Details </ng-template>
+      <mat-grid-list cols="2">
+        <mat-grid-tile [colspan]="1" [rowspan]="1">
+          <div class="container">
+            <h4><b>Residential</b></h4>
+            <mat-form-field class="full-width">
+              <input
+                matInput
+                formControlName="noAndStreet"
+                placeholder="Number and Street"
+              />
+            </mat-form-field>
+            <mat-form-field class="full-width">
+              <input
+                matInput
+                formControlName="suburb"
+                placeholder="Suburb/Town"
+              />
+            </mat-form-field>
+            <mat-form-field class="full-width">
+              <input
+                matInput
+                formControlName="state"
+                placeholder="State/Province"
+              />
+            </mat-form-field>
+            <mat-form-field class="full-width">
+              <input
+                matInput
+                formControlName="postcode"
+                placeholder="Postcode"
+              />
+            </mat-form-field>
+            <mat-form-field class="full-width">
+              <input matInput formControlName="country" placeholder="Country" />
+            </mat-form-field>
+            <mat-form-field class="full-width">
+              <input
+                matInput
+                formControlName="hTelephone"
+                placeholder="Home Telephone"
+              />
+            </mat-form-field>
+            <mat-form-field class="full-width">
+              <input
+                matInput
+                formControlName="mTelephone"
+                placeholder="Mobile Telephone"
+              />
+            </mat-form-field>
+          </div>
+        </mat-grid-tile>
+        <mat-grid-tile [colspan]="1" [rowspan]="1">
+          <div class="container">
+            <h4><b>Solamon</b></h4>
+            <mat-form-field class="full-width">
+              <input
+                matInput
+                formControlName="snoAndStreet"
+                placeholder="Number and Street"
+              />
+            </mat-form-field>
+            <mat-form-field class="full-width">
+              <input
+                matInput
+                formControlName="town"
+                placeholder="Town/Village"
+              />
+            </mat-form-field>
+            <mat-form-field class="full-width">
+              <input
+                matInput
+                formControlName="province"
+                placeholder="Province"
+              />
+            </mat-form-field>
+            <mat-form-field class="full-width">
+              <input
+                matInput
+                formControlName="postal"
+                placeholder="Postal Address"
+              />
+            </mat-form-field>
+            <mat-form-field class="full-width">
+              <input
+                matInput
+                formControlName="shTelephone"
+                placeholder="Home Telephone"
+              />
+            </mat-form-field>
+            <mat-form-field class="full-width">
+              <input
+                matInput
+                formControlName="smTelephone"
+                placeholder="Home Telephone"
+              />
+            </mat-form-field>
+          </div>
+        </mat-grid-tile>
+      </mat-grid-list>
+
+      <div>
+        <button mat-raised-button color="primary" matStepperPrevious>
+          Back
+        </button>
+        <button mat-raised-button class="ml-1" color="accent" matStepperNext>
+          Next
+        </button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step
+    [stepControl]="fourthFormGroup"
+    errorMessage="Emergency contact is required."
+  >
+    <form [formGroup]="fourthFormGroup">
+      <ng-template matStepLabel
+        >Fill the Emergency Contact Details
+      </ng-template>
+      <mat-grid-list cols="2">
+        <mat-grid-tile [colspan]="1" [rowspan]="1">
+          <div class="container">
+            <mat-form-field class="full-width">
+              <input
+                matInput
+                formControlName="emergencyFamilyName"
+                placeholder="Family Name"
+              />
+            </mat-form-field>
+            <mat-form-field class="full-width">
+              <input
+                matInput
+                formControlName="emergencyGivenName"
+                placeholder="Given Name"
+              />
+            </mat-form-field>
+            <mat-form-field class="full-width">
+              <input
+                matInput
+                formControlName="emergencyRelationship"
+                placeholder="Relationship to applicant"
+              />
+            </mat-form-field>
+            <mat-form-field class="full-width">
+              <input
+                matInput
+                formControlName="emergencyAddress"
+                placeholder="Contact Address Number and Street"
+              />
+            </mat-form-field>
+            <mat-form-field class="full-width">
+              <input
+                matInput
+                formControlName="emergencySuburb"
+                placeholder="Suburb/Town"
+              />
+            </mat-form-field>
+          </div>
+        </mat-grid-tile>
+        <mat-grid-tile [colspan]="1" [rowspan]="1">
+          <div class="container">
+            <mat-form-field class="full-width">
+              <input
+                matInput
+                formControlName="emergencyState"
+                placeholder="State/Province"
+              />
+            </mat-form-field>
+            <mat-form-field class="full-width">
+              <input
+                matInput
+                formControlName="emergencyPostcode"
+                placeholder="Postcode"
+              />
+            </mat-form-field>
+            <mat-form-field class="full-width">
+              <input
+                matInput
+                formControlName="emergencyCountry"
+                placeholder="Country"
+              />
+            </mat-form-field>
+            <mat-form-field class="full-width">
+              <input
+                matInput
+                formControlName="emergencyHTelephone"
+                placeholder="Home Telephone"
+              />
+            </mat-form-field>
+            <mat-form-field class="full-width">
+              <input
+                matInput
+                formControlName="emergencyMTelephone"
+                placeholder="Mobile Telephone"
+              />
+            </mat-form-field>
+          </div>
+        </mat-grid-tile>
+      </mat-grid-list>
+
+      <div>
+        <button mat-raised-button color="primary" matStepperPrevious>
+          Back
+        </button>
+        <button mat-raised-button class="ml-1" color="accent" matStepperNext>
+          Next
+        </button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step>
+    <ng-template matStepLabel>Done</ng-template>
+    <h2>
+      You have successfully completed the application form for your Solomon
+      Visa. Submit form and stay in touch with us to get updates.
+    </h2>
+    <div>
+      <button mat-raised-button matStepperPrevious>Back</button>
+      <!-- <button
+        mat-raised-button
+        class="ml-1"
+        color="accent"
+        (click)="stepper.reset()"
+      >
+        Reset
+      </button> -->
+      <button mat-raised-button class="ml-1" color="accent" (click)="submit()">
+        Submit
+      </button>
+    </div>
+  </mat-step>
+</mat-vertical-stepper>

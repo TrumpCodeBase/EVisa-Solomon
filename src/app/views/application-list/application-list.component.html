@@ -1,0 +1,33 @@
+<div class="page-layout overflow-hidden pb-8">
+  <!-- header background -->
+  <div class="header-bg blue"></div>
+
+  <div class="content">
+    <!-- Header content -->
+    <div
+      class="content-header p-24"
+      fxLayout="row wrap"
+      fxLayoutAlign="start center"
+    >
+      <h2 class="text-white m-0">Application List</h2>
+    </div>
+
+    <!-- Body card -->
+    <div class="content-body">
+      <div class="mat-box-shadow margin-333">
+        <ngx-datatable
+          class="material bg-white"
+          [columnMode]="'force'"
+          [headerHeight]="50"
+          [footerHeight]="50"
+          [rowHeight]="50"
+          [limit]="8"
+          [rows]="rows"
+          [scrollbarH]="true"
+          [columns]="columns"
+        >
+        </ngx-datatable>
+      </div>
+    </div>
+  </div>
+</div>
