@@ -1,3 +1,13 @@
+<button
+  mat-mini-fab
+  class="ml-1 float-right"
+  color="primary"
+  [routerLink]="'/application/details'"
+>
+  <mat-icon aria-hidden="false" aria-label="Example home icon"
+    >keyboard_backspace</mat-icon
+  >
+</button>
 <mat-vertical-stepper linear #stepper>
   <mat-step [stepControl]="firstFormGroup" errorMessage="Name is required.">
     <form [formGroup]="firstFormGroup">
@@ -51,7 +61,7 @@
               </mat-select>
             </mat-form-field>
             <mat-form-field class="full-width">
-              <mat-label>How long do you wish to stay in Soloman</mat-label>
+              <mat-label>When do you wish to stay in Soloman</mat-label>
               <input
                 matInput
                 [matDatepicker]="picker1"
@@ -80,24 +90,24 @@
     <form [formGroup]="secondFormGroup">
       <ng-template matStepLabel>Fill the personal details</ng-template>
 
-      <mat-grid-list cols="3">
+      <mat-grid-list cols="2">
         <mat-grid-tile [colspan]="1" [rowspan]="1">
           <div class="container">
-            <mat-form-field>
+            <mat-form-field class="full-width">
               <input
                 matInput
                 formControlName="familyName"
                 placeholder="Family Name"
               />
             </mat-form-field>
-            <mat-form-field>
+            <mat-form-field class="full-width">
               <input
                 matInput
                 formControlName="givenName"
                 placeholder="Given Name"
               />
             </mat-form-field>
-            <mat-form-field>
+            <mat-form-field class="full-width">
               <input
                 matInput
                 [matDatepicker]="picker2"
@@ -141,32 +151,32 @@
                 </mat-option>
               </mat-select>
             </mat-form-field>
-          </div>
-        </mat-grid-tile>
-        <mat-grid-tile [colspan]="1" [rowspan]="1">
-          <div class="container">
-            <mat-form-field>
+            <mat-form-field class="full-width">
               <input
                 matInput
                 formControlName="country"
                 placeholder="Country of Birth"
               />
             </mat-form-field>
-            <mat-form-field>
+            <mat-form-field class="full-width">
               <input
                 matInput
                 formControlName="nationality"
                 placeholder="Nationality"
               />
             </mat-form-field>
-            <mat-form-field>
+          </div>
+        </mat-grid-tile>
+        <mat-grid-tile [colspan]="1" [rowspan]="1">
+          <div class="container">
+            <mat-form-field class="full-width">
               <input
                 matInput
                 formControlName="passport"
                 placeholder="Passport Number"
               />
             </mat-form-field>
-            <mat-form-field>
+            <mat-form-field class="full-width">
               <input
                 matInput
                 [matDatepicker]="picker3"
@@ -179,18 +189,14 @@
               ></mat-datepicker-toggle>
               <mat-datepicker #picker3></mat-datepicker>
             </mat-form-field>
-            <mat-form-field>
+            <mat-form-field class="full-width">
               <input
                 matInput
-                formControlName="occupartion"
-                placeholder="Occupartion"
+                formControlName="occupation"
+                placeholder="Occupation"
               />
             </mat-form-field>
-          </div>
-        </mat-grid-tile>
-        <mat-grid-tile [colspan]="1" [rowspan]="1">
-          <div class="container">
-            <mat-form-field>
+            <mat-form-field class="full-width">
               <input
                 matInput
                 [matDatepicker]="picker4"
@@ -203,14 +209,14 @@
               ></mat-datepicker-toggle>
               <mat-datepicker #picker4></mat-datepicker>
             </mat-form-field>
-            <mat-form-field>
+            <mat-form-field class="full-width">
               <input
                 matInput
                 formControlName="place"
                 placeholder="passport issuing place"
               />
             </mat-form-field>
-            <mat-form-field>
+            <mat-form-field class="full-width">
               <input
                 matInput
                 formControlName="authority"
@@ -287,7 +293,7 @@
         </mat-grid-tile>
         <mat-grid-tile [colspan]="1" [rowspan]="1">
           <div class="container">
-            <h4><b>Solamon</b></h4>
+            <h4><b>Solomon</b></h4>
             <mat-form-field class="full-width">
               <input
                 matInput
@@ -327,7 +333,7 @@
               <input
                 matInput
                 formControlName="smTelephone"
-                placeholder="Home Telephone"
+                placeholder="Mobile Telephone"
               />
             </mat-form-field>
           </div>

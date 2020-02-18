@@ -47,7 +47,7 @@ export class ApplicationFormComponent implements OnInit {
       nationality: [""],
       passport: [""],
       exdate: [""],
-      occupartion: [""],
+      occupation: [""],
       pExDate: [""],
       place: [""],
       authority: [""]
