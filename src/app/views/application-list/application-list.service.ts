@@ -56,7 +56,7 @@ export class ApplicationListService {
       },
       {
         id: 1,
-        type: "Visiter Visa",
+        type: "Visitor Visa",
         status: "Awaiting Payment",
         regDate: "23-Feb-2020",
         surname: "Joyce",
