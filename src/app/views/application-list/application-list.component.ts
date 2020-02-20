@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { egretAnimations } from "../../shared/animations/egret-animations";
 import { ApplicationListService } from "./application-list.service";
 
 @Component({
@@ -15,5 +16,6 @@ export class ApplicationListComponent implements OnInit {
   ngOnInit() {
     this.columns = this.service.getDataConf();
     this.rows = this.service.getAll();
+    console.log(this.rows);
   }
 }

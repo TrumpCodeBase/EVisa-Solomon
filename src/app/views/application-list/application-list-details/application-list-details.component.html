@@ -1,0 +1,208 @@
+<div class="page-layout overflow-hidden pb-8">
+  <!-- header background -->
+  <div class="header-bg blue"></div>
+
+  <div class="content">
+    <!-- Header content -->
+    <div
+      class="content-header p-24"
+      fxLayout="row wrap"
+      fxLayoutAlign="start center"
+    >
+      <h2 class="text-white m-0">Visa Application Details</h2>
+
+      <div
+        *ngIf="
+          data.status == 'Awaiting Payment' || data.status == 'Rejected Visa';
+          else elseBlock
+        "
+      >
+        <mat-chip style="margin-top:15px" color="warn" selected>{{
+          data.status
+        }}</mat-chip>
+      </div>
+      <ng-template #elseBlock
+        ><mat-chip style="margin-top:15px" color="accent" selected>{{
+          data.status
+        }}</mat-chip></ng-template
+      >
+    </div>
+
+    <!-- Body card -->
+    <div class="content-body">
+      <div class="content-card default-bg">
+        <!-- body content -->
+        <div class="card-body p-24">
+          <mat-accordion>
+            <mat-expansion-panel>
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  Permit
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+              <li><b>Visa :</b> {{ data.type.visa }}</li>
+              <li><b>Stay Length :</b> {{ data.type.stayLength }}</li>
+              <li><b>Stay Fund :</b> {{ data.type.stayFund }}</li>
+              <li><b>Receipt No :</b> {{ data.type.receiptNo }}</li>
+              <li><b>Fee Amt :</b> {{ data.type.feeAmt }}</li>
+            </mat-expansion-panel>
+            <mat-expansion-panel>
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  Applicant
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+              <li><b>Applicant :</b> {{ data.applicant.applicant }}</li>
+              <li><b>Nationality :</b> {{ data.applicant.nationality }}</li>
+              <li>
+                <b>Country of Birth :</b> {{ data.applicant.countryOfBirth }}
+              </li>
+              <li><b>Date of Birth :</b> {{ data.applicant.DofB }}</li>
+            </mat-expansion-panel>
+            <mat-expansion-panel>
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  Passport
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+              <li><b>Passport No :</b> {{ data.passport.passportNo }}</li>
+              <li><b>Expiry Date :</b> {{ data.passport.expiryDate }}</li>
+              <li><b>Issue Date :</b> {{ data.passport.issueDate }}</li>
+            </mat-expansion-panel>
+            <mat-expansion-panel>
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  Alias
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+              <li><b>Given Names :</b> {{ data.alias.givenNames }}</li>
+              <li><b>Surname :</b> {{ data.alias.surname }}</li>
+            </mat-expansion-panel>
+            <mat-expansion-panel>
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  History
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+              <li><b>Visited PNG before? </b> {{ data.history.visited }}</li>
+              <li>
+                <b
+                  >Have you ever been charged with or convicted of a criminal
+                  offence?
+                </b>
+                {{ data.history.criminal }}
+              </li>
+              <li>
+                <b
+                  >Have you ever been deported or refused entry to PNG or any
+                  other country?
+                </b>
+                {{ data.history.deported }}
+              </li>
+              <li>
+                <b
+                  >Have you been a patient in a mental home/institution or do
+                  you suffer from a disease which may constitute a health risk
+                  in PNG?
+                </b>
+                {{ data.history.patient }}
+              </li>
+            </mat-expansion-panel>
+            <mat-expansion-panel>
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  Address
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+              <li><b>Residential :</b> {{ data.address.residential }}</li>
+              <li><b>Street Number :</b> {{ data.address.street }}</li>
+              <li><b>Suburb/Town :</b> {{ data.address.suburb }}</li>
+              <li><b>State/Province :</b> {{ data.address.state }}</li>
+              <li><b>Postcode :</b> {{ data.address.postcode }}</li>
+              <li><b>Country :</b> {{ data.address.country }}</li>
+              <li><b>Phone No :</b> {{ data.address.phone }}</li>
+            </mat-expansion-panel>
+            <mat-expansion-panel>
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  Emergency
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+              <li><b>Given Names :</b> {{ data.emergency.givenNames }}</li>
+              <li><b>Family Name :</b> {{ data.emergency.familyName }}</li>
+              <li><b>Home Phone :</b> {{ data.emergency.homePhone }}</li>
+            </mat-expansion-panel>
+          </mat-accordion>
+
+          <div *ngIf="data.status == 'Rejected Visa'">
+            <mat-card class="example-card mt-5">
+              <mat-card-header>
+                <div mat-card-avatar class="example-header-image"></div>
+                <mat-card-title class="text-red">Remarks</mat-card-title>
+              </mat-card-header>
+              <mat-card-content>
+                <p>
+                  Your visa has been denied by Solomon Islands authorities due
+                  to incomplete application or supporting document A visa denial
+                  has been placed due to the means that the consular officer did
+                  not have all of the information required to determine if you
+                  are eligible to receive a visa. This means you are not
+                  eligible for the visa now, If further documents are required
+                  to complete your case, you will be informed what is needed and
+                  how to provide it to the embassy or consulate.
+                </p>
+              </mat-card-content>
+            </mat-card>
+          </div>
+
+          <div *ngIf="data.status == 'Awaiting Payment'">
+            <mat-card class="example-card mt-5">
+              <mat-card-header>
+                <div mat-card-avatar class="example-header-image"></div>
+                <mat-card-title class="text-blue">Remarks</mat-card-title>
+              </mat-card-header>
+              <mat-card-content>
+                <p>
+                  We found that your application is missing some essential
+                  documents. Please submit the below to complete your visa
+                  approval process.
+                </p>
+
+                <li>
+                  One recent passport-size colour photograph depicting full
+                  face.
+                </li>
+                <li>
+                  Proof of Residence: Either a copy of National ID Card or
+                  Utility Bill such as electricity, telephone or water bill
+                </li>
+                <li>
+                  Proof of Financial soundness
+                  <p>
+                    We found that your application is missing some essential
+                    documents. Please submit the below to complete your visa
+                    approval process.
+                  </p>
+                </li>
+
+                <li>
+                  One recent passport-size colour photograph depicting full
+                  face.
+                </li>
+                <li>
+                  Proof of Residence: Either a copy of National ID Card or
+                  Utility Bill such as electricity, telephone or water bill
+                </li>
+                <li>Proof of Financial soundness</li>
+                <br />
+                <div>
+                  <input type="file" ng2FileSelect />
+                </div>
+              </mat-card-content>
+            </mat-card>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

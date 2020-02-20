@@ -10,6 +10,9 @@
       fxLayoutAlign="start center"
     >
       <h2 class="text-white m-0">Application List</h2>
+      <h4 class="text-yellow" style="margin-top:10px">
+        View all the applications you submitted along with their statuses.
+      </h4>
     </div>
 
     <!-- Body card -->
@@ -24,8 +27,60 @@
           [limit]="8"
           [rows]="rows"
           [scrollbarH]="true"
-          [columns]="columns"
         >
+          <ngx-datatable-column name="Type" [minWidth]="100" [flexGrow]="1">
+            <ng-template let-row="row" ngx-datatable-cell-template>
+              {{ row?.type.visa }}
+            </ng-template>
+          </ngx-datatable-column>
+          <ngx-datatable-column name="Status" [flexGrow]="1">
+            <ng-template let-row="row" ngx-datatable-cell-template>
+              {{ row?.status }}
+            </ng-template>
+          </ngx-datatable-column>
+          <ngx-datatable-column name="Registered Date" [flexGrow]="1">
+            <ng-template let-row="row" ngx-datatable-cell-template>
+              {{ row?.regDate }}
+            </ng-template>
+          </ngx-datatable-column>
+          <ngx-datatable-column
+            name="Applicant"
+            [minWidth]="250"
+            [flexGrow]="1"
+          >
+            <ng-template let-row="row" ngx-datatable-cell-template>
+              {{ row?.applicant.applicant }}
+            </ng-template>
+          </ngx-datatable-column>
+          <ngx-datatable-column name="Passport Number" [flexGrow]="1">
+            <ng-template let-row="row" ngx-datatable-cell-template>
+              {{ row?.passport.passportNo }}
+            </ng-template>
+          </ngx-datatable-column>
+          <ngx-datatable-column name="Passport Expiry" [flexGrow]="1">
+            <ng-template let-row="row" ngx-datatable-cell-template>
+              {{ row?.passport.expiryDate }}
+            </ng-template>
+          </ngx-datatable-column>
+          <ngx-datatable-column name="Reference No" [flexGrow]="1">
+            <ng-template let-row="row" ngx-datatable-cell-template>
+              {{ row?.reference }}
+            </ng-template>
+          </ngx-datatable-column>
+          <ngx-datatable-column name="Action" [flexGrow]="1">
+            <ng-template let-row="row" ngx-datatable-cell-template>
+              <button
+                mat-icon-button
+                mat-sm-button
+                color="primary"
+                class="mr-1"
+                routerLink="{{ row.id }}"
+                routerLinkActive="router-link-active"
+              >
+                <mat-icon>pageview</mat-icon>
+              </button>
+            </ng-template>
+          </ngx-datatable-column>
         </ngx-datatable>
       </div>
     </div>
